@@ -1,0 +1,6 @@
+[
+  {"title": "Log in with Facebook", "type": "facebook"},
+  {"title": "Log in with Twitter", "type": "twitter"},
+  {"title": "Log in with Google+", "type": "google"},
+  {"title": "Log in with GitHub", "type": "github"}
+]

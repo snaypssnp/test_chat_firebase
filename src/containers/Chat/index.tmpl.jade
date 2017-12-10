@@ -1,0 +1,47 @@
+.container.clearfix
+  .people-list
+    .search
+      input(type='text' placeholder='Search')
+      i.fa.fa-search
+    ul.list
+      li.clearfix
+        img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01.jpg' alt='avatar')
+        .about
+          .name Vincent Porter1
+      li.clearfix
+        img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01.jpg' alt='avatar')
+        .about
+          .name Vincent Porter1
+      li.clearfix
+        img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01.jpg' alt='avatar')
+        .about
+          .name Vincent Porter1
+      li.clearfix
+        img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01.jpg' alt='avatar')
+        .about
+          .name Vincent Porter1
+  .chat
+    .chat-header.clearfix
+      img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01_green.jpg' alt='avatar')
+      .chat-about
+        .chat-with Chat with Vincent Porter
+        .chat-num-messages already 1 902 messages
+      i.fa.fa-star
+    .chat-history
+      ul
+        li.clearfix
+          .message-data.align-right
+            span.message-data-time 10:10 AM, Today &nbsp;
+            span.message-data-name Olia &nbsp;
+            i.fa.fa-circle.me
+          .message.other-message.float-right Hi Vincent, how are you? How is the project coming along ?
+        li.clearfix
+          .message-data
+            span.message-data-name Vincent &nbsp;
+            span.message-data-time 10:10 AM, Today &nbsp;
+            i.fa.fa-circle.me
+          .message.my-message Hi Vincent, how are you? How is the project coming along ?
+    .chat-message.clearfix
+      textarea(id='message-to-send' name='message-to-send' placeholder='Type your message' rows='3')
+      .fa.fa-file-image-o
+      button Send
