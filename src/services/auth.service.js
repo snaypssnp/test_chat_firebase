@@ -1,5 +1,6 @@
-import firebase from 'firebase';
-import config from 'config/firebase';
+import firebaseApp from './firebase.service';
+
+const {firebase_: firebase} = firebaseApp;
 
 class AuthService {
   _providers = {
@@ -10,11 +11,11 @@ class AuthService {
   }
 
   constructor() {
-    this.app = firebase.initializeApp(config);
+    this.auth = firebaseApp.auth();
   }
 
-  auth() {
-    return this.app.auth();
+  get user() {
+    return this.auth.currentUser;
   }
 
   async signIn(typeProvider) {
@@ -24,11 +25,15 @@ class AuthService {
       throw new Error(`Profider with type "${typeProvider}" was not found`);
     }
 
-    return this.auth().signInWithPopup(provider);
+    return this.auth.signInWithPopup(provider);
   }
 
-  logOut() {
-    return this.auth().signOut();
+  onStateChanged(cb) {
+    this.auth.onAuthStateChanged(cb);
+  }
+
+  signOut() {
+    return this.auth.signOut();
   }
 }
 

@@ -1,7 +1,8 @@
 import Component from 'general/Component';
 import Button from 'components/common/Button';
 import socials from 'data/socials';
-import AuthService from 'services/auth.service.js';
+import AuthService from 'services/auth.service';
+import DataBaseService from 'services/database.service';
 import tmpl from './index.tmpl';
 
 class Login extends Component {
@@ -32,9 +33,19 @@ class Login extends Component {
   }
 
   async _onClick(type) {
-    await AuthService.signIn(type);
+    const {
+      user: {
+        uid: id,
+        displayName: name,
+        photoURL: image,
+      },
+    } = await AuthService.signIn(type);
 
     const {router} = this.props;
+
+    await DataBaseService
+      .ref(`users/${id}`)
+      .set({id, name, image});
 
     router.go('/chat');
   }
